@@ -25,33 +25,7 @@ def threeSum(nums):
                 while l < r and nums[r] == nums[r-1]:
                     r -= 1
                 l += 1; r -= 1
-    return res
-
-def tSum(nums):
-    length = len(nums)
-    nums.sort()
-    res = []
-    for i in range(length-2):
-        if i > 0 and nums[i] == nums[i-1]:
-            continue
-        l,r = i+1, length-1
-        while l<r:
-            s = nums[i] + nums[l] + nums[r]
-            if s>0:
-                r -= 1
-            elif s<0:
-                l += 1
-            else:
-                res.append((nums[i], nums[l], nums[r]))
-                while l<r and nums[l+1] == nums[l]:
-                    l += 1
-                while l<r and nums[r-1] == nums[r]:
-                    r -= 1
-                l += 1; r -= 1
-    return res
-
-
-
+    return r
 
 
 if __name__ == '__main__':
@@ -59,9 +33,5 @@ if __name__ == '__main__':
     #S = [-1, 0, 1, 2, -1, -4]
     begin = time.time()
     record_list = threeSum(S)
-    print(time.time()-begin)
-    print(record_list)
-    begin = time.time()
-    record_list = tSum(S)
     print(time.time()-begin)
     print(record_list)
